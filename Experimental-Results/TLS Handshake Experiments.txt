@@ -1,0 +1,93 @@
+TLS Handshake Experiments
+
+Cu functia MatchSET1CLR1
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld tls-handshake-full-code.c -o tls-handshake-full-code-cu-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>rl78-elf-sim -v tls-handshake-full-code-cu-functie-O3.out                      
+Exit code: 0
+total clocks: 6626120
+
+After isolating the execution of the algotithm: 6626120 - 120258 = 6,505,862 clocks
+
+
+Fara functia MatchSET1CLR1
+
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld tls-handshake-full-code.c -o tls-handshake-full-code-fara-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>rl78-elf-sim -v tls-handshake-full-code-fara-functie-O3.out                    
+Exit code: 0
+total clocks: 6626420
+
+After isolating the execution of the algotithm: 6626420 - 120258 = 6,506,162 clocks
+
+
+---------------------------- only vector generation --------------------------------
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld tls-handshake-only-vector-generation.c -o tls-handshake-only-vector-generation-cu-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>rl78-elf-sim -v tls-handshake-only-vector-generation-cu-functie-O3.out         
+Exit code: 0
+total clocks: 120258
+
+-----------------------------
+Diferenta viteza:
+
+300 clocks
+-----------------------------
+
+
+
+
+
+
+
+
+Cu functia MatchSET1CLR1
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld tls-handshake-full-code.c -o tls-handshake-full-code-cu-functie-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>llvm-size tls-handshake-full-code-cu-functie-Oz.out                            
+   text    data     bss     dec     hex filename
+   2934     294     510    3738     e9a tls-handshake-full-code-cu-functie-Oz.out
+
+After isolating the execution of the algotithm: 
+   text    data     bss     dec     hex filename
+   2154     288     384    2826     B0A
+
+
+
+Fara functia MatchSET1CLR1
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld tls-handshake-full-code.c -o tls-handshake-full-code-fara-functie-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>llvm-size tls-handshake-full-code-fara-functie-Oz.out                          
+   text    data     bss     dec     hex filename
+   2942     294     510    3746     ea2 tls-handshake-full-code-fara-functie-Oz.out
+
+
+
+After isolating the execution of the algotithm: 
+   text    data     bss     dec     hex filename
+   2162    288      384     2834    B12
+
+---------------------------- only vector generation --------------------------------
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld tls-handshake-only-vector-generation.c -o tls-handshake-only-vector-generation-cu-functie-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\tls-handshake>llvm-size tls-handshake-only-vector-generation-cu-functie-Oz.out               
+   text    data     bss     dec     hex filename
+    780       6     126     912     390 tls-handshake-only-vector-generation-cu-functie-Oz.out
+
+
+-----------------------------
+Diferenta marime:
+   text    data     bss     dec     hex filename
+    8       0        0       8      8
+
+-----------------------------

@@ -1,0 +1,97 @@
+OTA EXPERIMENTS
+
+
+
+--------------- SPEED ---------------
+
+
+Cu functia MatcSET1CLR1
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld ota-full-code.c -o ota-full-code-cu-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>rl78-elf-sim -v ota-full-code-cu-functie-O3.out                        
+Exit code: 0
+total clocks: 802998394
+
+802998394 - 14776439 = 788,221,955
+
+----------
+
+Fara functia MatcSET1CLR1
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld ota-full-code.c -o ota-full-code-fara-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>rl78-elf-sim -v ota-full-code-fara-functie-O3.out
+Exit code: 0
+total clocks: 803008634
+
+803008634 - 14776439 = 788,232,195
+
+Results: 10,240 cycles 
+
+
+---------------
+
+only vector generation:
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>rl78-elf-sim -v  ota-only-vector-generation-fara-functie-O3.out        
+Exit code: 0
+total clocks: 14776439
+
+
+
+
+
+
+--------------- SIZE ---------------
+
+Cu functia MatcSET1CLR1
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld ota-full-code.c -o ota-full-code-cu-functie-Oz.out                          
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>llvm-size ota-full-code-cu-functie-Oz.out
+   text    data     bss     dec     hex filename
+   2718     294     766    3778     ec2 ota-full-code-cu-functie-Oz.out
+
+
+dupa scadere:
+
+   text    data     bss     dec     hex filename
+   1972     288     128    2388     954
+
+
+----------
+
+Fara functia MatcSET1CLR1
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld ota-full-code.c -o ota-full-code-fara-functie-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>llvm-size ota-full-code-fara-functie-Oz.out
+   text    data     bss     dec     hex filename
+   2726     294     766    3786     eca ota-full-code-fara-functie-Oz.out
+
+dupa scadere:
+
+   text    data     bss     dec     hex filename
+   1980     288     128    2396     95C
+
+
+Results:
+
+   text    data     bss     dec     hex filename
+     8       0       0       8       8
+
+---------------
+
+
+only vector generation:
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinke
+r_script.ld ota-only-vector-generation.c -o ota-only-vector-generation-cu-functie-Oz.out      
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\ota>llvm-size ota-only-vector-generation-cu-functie-Oz.out
+   text    data     bss     dec     hex filename
+    746       6     638    1390     56e ota-only-vector-generation-cu-functie-Oz.out

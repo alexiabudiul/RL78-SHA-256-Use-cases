@@ -1,0 +1,104 @@
+WiFi Pairing Experiments
+
+
+SPEED
+
+Cu functia MatchSET1CLR1
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld wifi-pairing-full-code.c -o wifi-pairing-full-code-cu-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>rl78-elf-sim -v wifi-pairing-full-code-cu-functie-O3.out
+Exit code: 0
+total clocks: 715263759
+
+
+After isolating the execution of the algotithm: 715263759 - 65680 = 715,198,079
+
+
+
+Fara functia MatchSET1CLR1
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld wifi-pairing-full-code.c -o wifi-pairing-full-code-fara-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>rl78-elf-sim -v wifi-pairing-full-code-fara-functie-O3.out
+Exit code: 0
+total clocks: 715304719
+
+
+
+After isolating the execution of the algotithm: 715304719 - 65680 = 715,239,039
+
+---------------------------- only vector generation --------------------------------
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld wifi-pairing-only-vector-generation.c -o wifi-pairing-only-vector-generation-cu-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>rl78-elf-sim -v wifi-pairing-only-vector-generation-cu-functie-O3.out
+Exit code: 0
+total clocks: 65680
+
+
+-----------------------------
+Diferenta viteza:
+
+40,960 clocks
+
+-----------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+SIZE
+
+Cu functia MatchSET1CLR1
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.
+ld wifi-pairing-full-code.c -o wifi-pairing-full-code-cu-functie-Oz.out      
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>llvm-size wifi-pairing-full-code-cu-functie-Oz.out
+   text    data     bss     dec     hex filename
+   2910     310     382    3602     e12 wifi-pairing-full-code-cu-functie-Oz.out
+
+
+After isolating the execution of the algotithm: 
+
+   text    data     bss     dec     hex filename
+   2204     304     256    2764     ACC
+
+
+
+Fara functia MatchSET1CLR1
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.
+ld wifi-pairing-full-code.c -o wifi-pairing-full-code-fara-functie-Oz.out      
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>llvm-size wifi-pairing-full-code-fara-functie-Oz.out
+   text    data     bss     dec     hex filename
+   2918     310     382    3610     e1a wifi-pairing-full-code-fara-functie-Oz.out
+
+
+
+After isolating the execution of the algotithm: 
+   text    data     bss     dec     hex filename
+   2212     304     256    2772      AD4
+
+
+---------------------------- only vector generation --------------------------------
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld wifi-pairing-only-vector-generation.c -o wifi-pairing-only-vector-generation-cu-functie-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\wifi-pairing>llvm-size wifi-pairing-only-vector-generation-cu-functie-Oz.out
+   text    data     bss     dec     hex filename
+    706       6     126     838     346 wifi-pairing-only-vector-generation-cu-functie-Oz.out
+
+
+-----------------------------
+Diferenta marime:
+   text    data     bss     dec     hex filename
+     8      0        0       8       8
+
+-----------------------------

@@ -1,0 +1,105 @@
+HMAC Experiments
+
+
+SPEED
+
+Cu functia MatchSET1CLR1
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld hmac-full-code.c -o hmac-full-code-cu-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>rl78-elf-sim -v hmac-full-code-cu-functie-O3.out
+Exit code: 0
+total clocks: 37921198475
+
+After isolating the execution of the algotithm: 37921198475 - 3349069 = 37,917,849,406
+
+
+
+
+Fara functia MatchSET1CLR1
+
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld hmac-full-code.c -o hmac-full-code-fara-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>rl78-elf-sim -v hmac-full-code-fara-functie-O3.out                                      
+Exit code: 0
+total clocks: 37922926475
+
+After isolating the execution of the algotithm: 37922926475 - 3349069 = 37,919,577,406
+
+
+---------------------------- only vector generation --------------------------------
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld hmac-only-vector-generation.c -o hmac-only-vector-generation-cu-functie-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>rl78-elf-sim -v hmac-only-vector-generation-cu-functie-O3.out
+Exit code: 0
+total clocks: 3349069
+
+
+-----------------------------
+Diferenta viteza:
+
+1,728,000 clocks
+
+-----------------------------
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SIZE
+
+
+Cu functia MatchSET1CLR1
+
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld hmac-
+full-code.c -o hmac-full-code-cu-functie-Oz.out      
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>llvm-size hmac-full-code-cu-functie-Oz.out
+   text    data     bss     dec     hex filename
+   2838     326     382    3546     dda hmac-full-code-cu-functie-Oz.out
+
+
+After isolating the execution of the algotithm: 
+   text    data     bss     dec     hex filename
+   2118    320      256    2694     A86
+
+
+Fara functia MatchSET1CLR1
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld hmac-
+full-code.c -o hmac-full-code-fara-functie-Oz.out      
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>llvm-size hmac-full-code-fara-functie-Oz.out
+   text    data     bss     dec     hex filename
+   2846     326     382    3554     de2 hmac-full-code-fara-functie-Oz.out
+
+
+After isolating the execution of the algotithm: 
+   text    data     bss     dec     hex filename
+   2126     320     256     2702    A8E
+
+
+-----------------------------
+Diferenta marime:
+   text    data     bss     dec     hex filename
+    8       0        0       8      8
+-----------------------------
+
+
+---------------------------- only vector generation --------------------------------
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld hmac-only-vector-generation.c -o hmac-only-vector-generation-cu-functie-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\hmac>llvm-size hmac-only-vector-generation-cu-functie-Oz.out
+   text    data     bss     dec     hex filename
+    720       6     126     852     354 hmac-only-vector-generation-cu-functie-Oz.out
+
+

@@ -1,0 +1,374 @@
+Merkle Trees
+
+
+
+Merkle Trees Experiment
+
+
+SIZE
+
+
+2^23 = 8M nodes
+
+FARA FUNCTIE
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-tree-v2-full-code.c -o merkle-tree-v2-full-code-23-fara-functie-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-tree-v2-full-code-23-fara-functie-size-Oz.out
+
+   text    data     bss     dec     hex filename
+   2908     294    1150    4352    1100 merkle-tree-v2-full-code-23-fara-functie-size-Oz.out
+
+
+only vector generation
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-fara-functie-23-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-trees-only-vector-generation-fara-functie-23-size-Oz.out
+   text    data     bss     dec     hex filename
+    930       6    1022    1958     7a6 merkle-trees-only-vector-generation-fara-functie-23-size-Oz.out
+
+
+Doar executarea algoritmului:
+   text    data     bss     dec     hex filename
+   1978    288      128    2394     95A
+
+
+
+
+CU FUNCTIE
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-tree-v2-full-code.c -o merkle-tree-v2-full-code-23-cu-functie-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-tree-v2-full-code-23-cu-functie-size-Oz.out
+   text    data     bss     dec     hex filename
+   2900     294    1150    4344    10f8 merkle-tree-v2-full-code-23-cu-functie-size-Oz.out
+
+
+only vector generation
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-cu-functie-23-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-trees-only-vector-generation-cu-functie-23-size-Oz.out
+   text    data     bss     dec     hex filename
+    930       6    1022    1958     7a6 merkle-trees-only-vector-generation-cu-functie-23-size-Oz.out
+
+
+Doar executarea algoritmului:
+   text    data     bss     dec     hex filename
+  1970     288      128    2386      952
+
+
+
+
+DIEFERNTA:
+
+   text    data     bss     dec     hex filename
+    8       0        0       8       8
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+
+2^22 = 4M nodes
+
+FARA FUNCTIE
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-tree-v2-full-code.c -o merkle-tree-v2-full-code-22-fara-functie-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-tree-v2-full-code-22-fara-functie-size-Oz.out
+
+   text    data     bss     dec     hex filename
+   2908     294    1022    4224    1080 merkle-tree-v2-full-code-22-fara-functie-size-Oz.out
+
+
+only vector generation
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-fara-functie-22-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-trees-only-vector-generation-fara-functie-22-size-Oz.out
+   text    data     bss     dec     hex filename
+    930       6    1022    1958     7a6 merkle-trees-only-vector-generation-fara-functie-22-size-Oz.out
+
+
+Doar executarea algoritmului:
+   text    data     bss     dec     hex filename
+  1978     288       0      2266    8DA
+
+
+
+
+
+CU FUNCTIE
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-tree-v2-full-code.c -o merkle-tree-v2-full-code-22-cu-functie-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-tree-v2-full-code-22-cu-functie-size-Oz.out
+   text    data     bss     dec     hex filename
+   2900     294    1022    4216    1078 merkle-tree-v2-full-code-22-cu-functie-size-Oz.out
+
+
+only vector generation
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-cu-functie-22-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-trees-only-vector-generation-cu-functie-22-size-Oz.out
+   text    data     bss     dec     hex filename
+    930       6    1022    1958     7a6 merkle-trees-only-vector-generation-cu-functie-22-size-Oz.out
+
+
+Doar executarea algoritmului:
+   text    data     bss     dec     hex filename
+  1970     288       0      2258    8D2
+
+DIEFERNTA:
+   text    data     bss     dec     hex filename
+    8       0        0      8        8
+
+---------------------------------------------------------------------
+
+
+2^21 = 2M nodes
+
+FARA FUNCTIE
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-tree-v2-full-code.c -o merkle-tree-v2-full-code-21-fara-functie-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-tree-v2-full-code-21-fara-functie-size-Oz.out
+
+   text    data     bss     dec     hex filename
+   2908     294    1022    4224    1080 merkle-tree-v2-full-code-21-fara-functie-size-Oz.out
+
+
+only vector generation
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-fara-functie-21-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-trees-only-vector-generation-fara-functie-21-size-Oz.out
+   text    data     bss     dec     hex filename
+    930       6     894    1830     726 merkle-trees-only-vector-generation-fara-functie-21-size-Oz.out
+
+
+Doar executarea algoritmului:
+   text    data     bss     dec     hex filename
+  1978     288      128     2394    95A
+
+
+
+
+CU FUNCTIE
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-tree-v2-full-code.c -o merkle-tree-v2-full-code-21-cu-functie-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-tree-v2-full-code-21-cu-functie-size-Oz.out
+   text    data     bss     dec     hex filename
+   2900     294    1022    4216    1078 merkle-tree-v2-full-code-21-cu-functie-size-Oz.out
+
+
+only vector generation
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-cu-functie-21-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-trees-only-vector-generation-cu-functie-21-size-Oz.out
+   text    data     bss     dec     hex filename
+    930       6     894    1830     726 merkle-trees-only-vector-generation-cu-functie-21-size-Oz.out
+
+
+Doar executarea algoritmului:
+   text    data     bss     dec     hex filename
+  1970     288      128    2386     952
+
+DIEFERNTA:
+   text    data     bss     dec     hex filename
+    8        0       0       8      8
+
+
+
+---------------------------------------------------------
+
+
+2^20 = 1M nodes
+
+FARA FUNCTIE
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-tree-v2-full-code.c -o merkle-tree-v2-full-code-20-fara-functie-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-tree-v2-full-code-20-fara-functie-size-Oz.out
+
+   text    data     bss     dec     hex filename
+   2908     294    1022    4224    1080 merkle-tree-v2-full-code-20-fara-functie-size-Oz.out
+
+
+only vector generation
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-fara-functie-20-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-trees-only-vector-generation-fara-functie-20-size-Oz.out
+   text    data     bss     dec     hex filename
+    930       6     894    1830     726 merkle-trees-only-vector-generation-fara-functie-20-size-Oz.out
+
+
+Doar executarea algoritmului:
+   text    data     bss     dec     hex filename
+   1978     288     128     2394    95A
+
+
+
+CU FUNCTIE
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-tree-v2-full-code.c -o merkle-tree-v2-full-code-20-cu-functie-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-tree-v2-full-code-20-cu-functie-size-Oz.out
+   text    data     bss     dec     hex filename
+   2900     294    1022    4216    1078 merkle-tree-v2-full-code-20-cu-functie-size-Oz.out
+
+only vector generation
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -Oz -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-cu-functie-20-size-Oz.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>llvm-size merkle-trees-only-vector-generation-cu-functie-20-size-Oz.out
+   text    data     bss     dec     hex filename
+    930       6     894    1830     726 merkle-trees-only-vector-generation-cu-functie-20-size-Oz.out
+
+
+Doar executarea algoritmului:
+   text    data     bss     dec     hex filename
+   1970     288     128     2386    952
+
+
+DIEFERNTA:
+   text    data     bss     dec     hex filename
+    8       0       0        8      8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+SPEED
+
+pentru 1M noduri am castigat 10,485,755 cicluri.
+
+Extrapolări 
+Formula: [inaltime (nr frunze) + inaltime –1 (nr parinti)] * 5 = cicluri castigate 
+
+1. 2M = 2^21 = 2,097,152 
+(2,097,152 + 2,097,151) * 5 = 4,194,303 * 5 = 20,971,515 
+
+2. 4M = 2 ^22 = 4,194,304 
+(4,194,304 + 4,194,303) * 5 = 8,388,607 * 5 = 41,943,035 
+
+3. 8M = 2^23 = 8,388,608 
+(8,388,608 + 8,388,607) * 5 = 16,777,215 * 5 = 83,886,075
+
+
+
+
+
+
+
+
+
+
+
+
+only vector generation
+
+
+2^23 = 8M nodes
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-fara-functie-23-speed-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>rl78-elf-sim -v  merkle-trees-only-vector-generation-fara-functie-23-speed-O3.out
+Exit code: 0
+total clocks: 18748604698
+
+
+2^22 = 4M nodes
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-fara-functie-22-speed-O3.o
+ut
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>rl78-elf-sim -v merkle-trees-only-vector-generation-fara-functie-22-speed-O3.out
+Exit code: 0
+total clocks: 9374335065
+
+
+2^21 = 2M nodes
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-fara-functie-21-speed-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>rl78-elf-sim -v merkle-trees-only-vector-generation-fara-functie-21-speed-O3.out
+Exit code: 0
+total clocks: 4687200248
+
+2^20 = 1M nodes
+
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>clang -fsim -O3 -fdata-sections -ffunction-sections -Wl,--gc-sections -Tlinker_script.ld merkle-trees-only-vector-generation.c -o merkle-trees-only-vector-generation-fara-functie-20-speed-O3.out
+
+D:\Repos\llvm-rl78\tests\lit\tests\tickets\ticket_3126\merkle-trees>rl78-elf-sim -v merkle-trees-only-vector-generation-fara-functie-20-speed-O3.out
+Exit code: 0
+total clocks: 2343632839
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
